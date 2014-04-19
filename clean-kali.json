@@ -1,0 +1,51 @@
+{
+  "builders": [
+    {
+        "boot_command": [
+          "<esc><wait>",
+          "install preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg debian-installer=en_US auto locale=en_US kbd-chooser/method=us <wait>",
+          "netcfg/get_hostname={{ .Name }} netcfg/get_domain=vagrantup.com fb=false debconf/frontend=noninteractive console-setup/ask_detect=false <wait>", 
+  	"console-keymaps-at/keymap=us keyboard-configuration/xkb-keymap=us <wait>",
+          "<enter><wait>"
+        ],
+      "boot_wait": "10s",
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "guest_os_type": "Debian_64",
+      "http_directory": "http",
+      "iso_checksum": "281ddb3d14619a973e254b8f484b7fe27defa822",
+      "iso_checksum_type": "sha1",
+      "iso_url": "http://cdimage.kali.org/kali-images/kali-1.0.6/kali-linux-1.0.6-amd64.iso",
+      "shutdown_command": "echo 'vagrant' | sudo -S /sbin/shutdown -h 0",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_username": "vagrant",
+      "ssh_wait_timeout": "10000s",
+      "type": "virtualbox-iso"
+    }
+  ],
+  "provisioners": [
+    {
+	  "type": "shell",
+      "scripts": [
+        "scripts/base.sh",
+        "scripts/virtualbox.sh",
+		"scripts/vagrant.sh",
+		"scripts/ruby.sh",
+		"scripts/chef.sh",
+		"scripts/cleanup.sh",
+		"scripts/zerodisk.sh"
+      ],
+      "pause_before": "10s",
+      "override": {
+        "virtualbox-iso": {
+          "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}'"
+		}
+	  }	  
+    }
+  ],
+  "post-processors": [  {
+    "type": "vagrant"
+  }
+  ]
+}
+
