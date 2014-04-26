@@ -44,6 +44,7 @@
           "initrd=/install/initrd.gz -- <enter>"
 	  ],
       "boot_wait": "10s",
+      "guest_os_type": "debian7-64",
       "http_directory": "http",
       "iso_url": "http://cdimage.kali.org/kali-images/kali-1.0.6/kali-linux-1.0.6-amd64.iso",
       "iso_checksum": "281ddb3d14619a973e254b8f484b7fe27defa822",
@@ -52,6 +53,7 @@
       "ssh_port": 22,
       "ssh_username": "vagrant",
       "ssh_wait_timeout": "10000s",
+      "tools_upload_flavor": "linux",
       "shutdown_command": "echo 'vagrant' | sudo -S /sbin/shutdown -h 0"	  
 	}
   ],
