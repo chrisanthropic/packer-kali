@@ -90,7 +90,8 @@
     }
   ],
   "post-processors": [  {
-    "type": "vagrant"
+    "type": "vagrant",
+	"output" : "Kali_{{.Provider}}_{{isotime}}.box"
   }
   ]
 }
