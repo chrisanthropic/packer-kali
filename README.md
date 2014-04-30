@@ -21,15 +21,15 @@ We start with a Kali 1.0.6 x64 base .iso and run a few scripts on it before crea
  - Modifies /etc/issue for vagrant/vmware OS detection.
  
 ## Use
-== Packer ==
+##### Packer #####
 Create the box you want (either virtualbox or vmware)
 
  - git clone https://github.com/ctarwater/packer-kali.git
  - cd packer-kali
    - virtualbox: packer build -only=virtualbox-iso clean-kali.json
-   - packer build -only=vmware-iso clean-kali.json 
+   - vmware: packer build -only=vmware-iso clean-kali.json 
  
-== Vagrant ==
+##### Vagrant #####
 Add the box you just created and then run the Vagrantfile we provided
 
  - vagrant box add Kali-1.0.6 /path/to/vm.box
