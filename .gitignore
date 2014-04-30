@@ -17,3 +17,4 @@ Icon
 
 *.box
 *_cache
+.vagrant
