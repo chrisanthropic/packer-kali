@@ -1,6 +1,13 @@
 #!/bin/sh
 set -e
 
+# Ignore the php 5.4.4 upgrade for now because automating it fails and freezes our build
+echo "php5 hold" | dpkg --set-selections
+echo "php5-cli hold" | dpkg --set-selections
+echo "php5-mysql hold" | dpkg --set-selections
+echo "php5-common hold" | dpkg --set-selections
+
+
 # Update
 apt-get -y update
 
