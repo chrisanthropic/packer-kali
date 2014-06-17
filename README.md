@@ -1,6 +1,6 @@
 packer-kali
 ===========
-Packer stuff to build Kali 1.0.6
+Packer stuff to build Kali 1.0.7
 
 ## Requirements
 * Packer
@@ -8,9 +8,9 @@ Packer stuff to build Kali 1.0.6
 * Virtualbox and/or VMware
 
 ## About the Boxes
-We start with a Kali 1.0.6 x64 base .iso and run a few scripts on it before creating a vagrant compatible .box for Virtualbox and/or VMware.
+We start with a Kali 1.0.7 x64 base .iso and run a few scripts on it before creating a vagrant compatible .box for Virtualbox and/or VMware.
 
-#### Kali linux 1.0.6
+#### Kali linux 1.0.7
  - Full dist-upgrade.
  - Installs virtualbox guest additions / vmware-tools.
  - apt-get installation of 'chef' for provisioning.
@@ -32,7 +32,7 @@ Create the box you want (either virtualbox or vmware)
 ##### Vagrant #####
 Add the box you just created and then run the Vagrantfile we provided
 
- - vagrant box add Kali-1.0.6 /path/to/vm.box
+ - vagrant box add Kali-1.0.7 /path/to/vm.box
  - cd to /packer-kali
    - virtualbox: vagrant up --provider=virtualbox
-   - vmware: vagrant up --provider=vmware
+   - vmware: vagrant up --provider=vmware_desktop
