@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
     config.vm.provider "virtualbox" do |vb|
     vb.gui = true   
   end
-    config.vm.provider "vmware_fusion" do |vmware|
+    config.vm.provider "vmware_workstation" do |vmware|
     vmware.gui = true
   end
 

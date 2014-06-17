@@ -1,23 +1,19 @@
 #!/bin/sh
 set -e
 
-# Ignore the php 5.4.4 upgrade for now because automating it fails and freezes our build
-echo "php5 hold" | dpkg --set-selections
-echo "php5-cli hold" | dpkg --set-selections
-echo "php5-mysql hold" | dpkg --set-selections
-echo "php5-common hold" | dpkg --set-selections
-
+# Don't upgrade kernel, it breaks hgfs module which breaks shared folders for VMware which prevents chef provisioning
+echo "linux hold" | dpkg --set-selections
+echo "linux-headers hold" | dpkg --set-selections
 
 # Update
 apt-get -y update
-
+apt-get -y upgrade
 # Have to run dist-upgrade with these options to get around the new libssl update that requires user input.
-DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confnew" dist-upgrade
+# DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confnew" dist-upgrade
 
 # Install helpful things
 apt-get -y install linux-headers-$(uname -r) build-essential
-apt-get -y install zlib1g-dev libreadline-gplv2-dev #libssl-dev
-apt-get -y install curl unzip vim
+apt-get -y install zlib1g-dev libreadline-gplv2-dev curl unzip vim
 
 # Set up sudo (thanks to codeship.io)
 groupadd -r admin
