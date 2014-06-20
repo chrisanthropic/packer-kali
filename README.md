@@ -10,6 +10,8 @@ Packer stuff to build Kali 1.0.7
 ## About the Boxes
 We start with a Kali 1.0.7 x64 base .iso and run a few scripts on it before creating a vagrant compatible .box for Virtualbox and/or VMware.
 
+Final box available on Vagrantcloud at: https://vagrantcloud.com/cmad/
+
 #### Kali linux 1.0.7
  - Full dist-upgrade.
  - Installs virtualbox guest additions / vmware-tools.
