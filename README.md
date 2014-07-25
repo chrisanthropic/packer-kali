@@ -22,6 +22,7 @@ Final box available on Vagrantcloud at: https://vagrantcloud.com/cmad/
  - Authorized keys for 'vagrant' user are stored in the ~/.ssh directory.
  - Enables rpcbind, nfs-common and ssh services at boot.
  - Modifies /etc/issue for vagrant/vmware OS detection.
+ - eth1 now uses a static ip of 172.16.189.5
  
 ## Use
 ##### Packer #####
