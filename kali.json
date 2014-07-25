@@ -13,6 +13,7 @@
 	  "console-setup/ask_detect=false <wait>", 
   	  "console-keymaps-at/keymap=us ",
 	  "keyboard-configuration/xkb-keymap=us <wait>",
+          "<enter><wait10><wait10><wait10>",
           "<enter><wait>"
         ],
       "boot_wait": "10s",
@@ -26,7 +27,11 @@
       "ssh_password": "vagrant",
       "ssh_port": 22,
       "ssh_username": "vagrant",
-      "ssh_wait_timeout": "10000s"
+      "ssh_wait_timeout": "10000s",
+      "vboxmanage": [
+	["modifyvm", "{{.Name}}", "--nic2", "intnet"],
+	["modifyvm", "{{.Name}}", "--macaddress2", "080027f34a5d"]
+      ]
     },
     {
       "type": "vmware-iso",
@@ -68,6 +73,7 @@
 	"scripts/vagrant.sh",
 	"scripts/ruby.sh",
 	"scripts/chef.sh",
+	"scripts/network.sh",
 	"scripts/cleanup.sh",
 	"scripts/zerodisk.sh"
       ]

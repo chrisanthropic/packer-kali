@@ -14,6 +14,7 @@ We start with a Kali 1.0.7 x64 base .iso and run a few scripts on it before crea
  - Full dist-upgrade.
  - Installs virtualbox guest additions / vmware-tools.
  - apt-get installation of 'chef' for provisioning.
+ - Root password changed to: THAconf1g?
  - User 'vagrant' is created with password 'vagrant' and added to user group 'admin'.
  - Enables passwordless sudo for user group 'admin'.
  - Authorized keys for 'vagrant' user are stored in the ~/.ssh directory.

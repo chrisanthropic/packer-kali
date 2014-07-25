@@ -5,6 +5,9 @@ set -e
 echo "linux hold" | dpkg --set-selections
 echo "linux-headers hold" | dpkg --set-selections
 
+# Don't upgrade Apache for now, it freezes the script
+apt-mark hold apache2
+
 # Update
 apt-get -y update
 apt-get -y upgrade
@@ -15,12 +18,22 @@ apt-get -y upgrade
 apt-get -y install linux-headers-$(uname -r) build-essential
 apt-get -y install zlib1g-dev libreadline-gplv2-dev curl unzip vim
 
+# Unblock Apache2 from updates
+apt-mark unhold apache2
+
 # Set up sudo (thanks to codeship.io)
 groupadd -r admin
 usermod -a -G admin vagrant
 cp /etc/sudoers /etc/sudoers.orig
 sed -i -e '/Defaults\s\+env_reset/a Defaults\texempt_group=admin' /etc/sudoers
 sed -i -e 's/%admin ALL=(ALL) ALL/%admin ALL=NOPASSWD:ALL/g' /etc/sudoers
+
+# Auto Login as root
+cat >>/etc/gdm3/daemon.conf <<EOL
+[daemon]
+AutomaticLoginEnable = true
+AutomaticLogin = root
+EOL
 
 # Tweak sshd to prevent DNS resolution (speed up logins)
 echo 'UseDNS no' >> /etc/ssh/sshd_config
