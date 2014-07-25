@@ -5,7 +5,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "Kali_vmware_2014-07-25T08:21:45Z.box" #download box from vagrant cloud: org/boxname
+  config.vm.box = "cmad/THA-kali" #download box from vagrant cloud: org/boxname
  
   config.vm.provider "virtualbox" do |vb|
     vb.gui = true
