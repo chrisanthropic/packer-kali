@@ -5,7 +5,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "cmad/THA-kali" #download box from vagrant cloud: org/boxname
+  config.vm.box = "Kali_vmware_2014-07-30T20:33:51Z.box" #download box from vagrant cloud: org/boxname
  
   config.vm.provider "virtualbox" do |vb|
     vb.gui = true
@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provider "vmware_workstation" do |vmware|
-  config.vm.network "private_network", ip: "172.16.189.5", :adapter => 2
+  config.vm.network "private_network", ip: "172.16.189.5", :adapter => 2, :mac => "080027f34a5d"
     vmware.gui = true
   end
 
