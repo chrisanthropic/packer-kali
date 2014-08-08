@@ -73,8 +73,20 @@
 	"scripts/vagrant.sh",
 	"scripts/ruby.sh",
 	"scripts/chef.sh",
-	"scripts/network.sh",
-	"scripts/cleanup.sh",
+	"scripts/network.sh"
+      ]
+    },
+    {
+      "type": "file",
+      "source": "assets/apache.tar.gz",
+      "destination": "/tmp/apache.tar.gz"
+    },
+    {
+      "type": "shell",
+      "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}'",
+      "scripts": [
+        "scripts/apache.sh",
+        "scripts/cleanup.sh",
 	"scripts/zerodisk.sh"
       ]
     }

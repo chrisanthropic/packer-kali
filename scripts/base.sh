@@ -60,6 +60,10 @@ echo "Debian GNU/Linux 7" > /etc/issue
 exit 0
 EOF
 
+# Change permissions to /var/www/ so Packer can transfer some files to it
+chmod 777 /var
+chmod 777 /var/www
+
 # Remove 5s grub timeout to speed up booting
 cat <<EOF > /etc/default/grub
 # If you change this file, run 'update-grub' afterwards to update
