@@ -78,8 +78,8 @@
     },
     {
       "type": "file",
-      "source": "assets/apache.tar.gz",
-      "destination": "/tmp/apache.tar.gz"
+      "source": "assets/",
+      "destination": "/tmp"
     },
     {
       "type": "shell",
