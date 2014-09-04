@@ -7,7 +7,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure("2") do |config|
   config.vm.define "kali", primary: true do |kali|
     config.vm.network "private_network", ip: "172.16.189.5", :adapter => 2, :mac => "080027f34a5d"
-    kali.vm.box = "Kali_virtualbox_2014-08-01T21:46:10Z.box" #download box from vagrant cloud: org/boxname
+    kali.vm.box = "Kali_virtualbox_2014-09-04T00:19:36Z.box" #download box from vagrant cloud: org/boxname
     kali.vm.provider "virtualbox" do |vb|
       vb.gui = true
     end

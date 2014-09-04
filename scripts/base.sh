@@ -8,6 +8,10 @@ echo "linux-headers hold" | dpkg --set-selections
 # Don't upgrade Apache for now, it freezes the script
 apt-mark hold apache2
 
+# Don't upgrade Metasploit framework for now there's a bug that prevents it from connecting to the database
+apt-mark hold metasploit
+apt-mark hold metasploit-framework
+
 # Update
 apt-get -y update
 apt-get -y upgrade
@@ -19,7 +23,7 @@ apt-get -y install linux-headers-$(uname -r) build-essential
 apt-get -y install zlib1g-dev libreadline-gplv2-dev curl unzip vim
 
 # Unblock Apache2 from updates
-apt-mark unhold apache2
+apt-mark unhold apache2 metasploit metasploit-framework
 
 # Set up sudo (thanks to codeship.io)
 groupadd -r admin

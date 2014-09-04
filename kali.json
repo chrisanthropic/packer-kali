@@ -86,6 +86,8 @@
       "execute_command": "echo 'vagrant'|sudo -S bash '{{.Path}}'",
       "scripts": [
         "scripts/apache.sh",
+        "scripts/software.sh",
+        "scripts/metasploit.sh",
         "scripts/cleanup.sh",
 	"scripts/zerodisk.sh"
       ]
