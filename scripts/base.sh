@@ -2,28 +2,29 @@
 set -e
 
 # Don't upgrade kernel, it breaks hgfs module which breaks shared folders for VMware which prevents chef provisioning
-echo "linux hold" | dpkg --set-selections
-echo "linux-headers hold" | dpkg --set-selections
+#echo "linux hold" | dpkg --set-selections
+#echo "linux-headers hold" | dpkg --set-selections
 
-# Don't upgrade Apache for now, it freezes the script
-apt-mark hold apache2
-
-# Don't upgrade Metasploit framework for now there's a bug that prevents it from connecting to the database
-apt-mark hold metasploit
-apt-mark hold metasploit-framework
+# Edit listchanges 'frontend=text' so it doesn't freeze our non-interactive script when there's an imoportant changelog
+cat >/etc/apt/listchanges.conf <<EOL
+[apt]
+frontend=text
+email_address=root
+confirm=0
+save_seen=/var/lib/apt/listchanges.db
+which=news
+EOL
 
 # Update
 apt-get -y update
 apt-get -y upgrade
+
 # Have to run dist-upgrade with these options to get around the new libssl update that requires user input.
 # DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confnew" dist-upgrade
 
 # Install helpful things
 apt-get -y install linux-headers-$(uname -r) build-essential
 apt-get -y install zlib1g-dev libreadline-gplv2-dev curl unzip vim
-
-# Unblock Apache2 from updates
-apt-mark unhold apache2 metasploit metasploit-framework
 
 # Set up sudo (thanks to codeship.io)
 groupadd -r admin

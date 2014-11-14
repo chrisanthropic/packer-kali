@@ -20,9 +20,9 @@
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "guest_os_type": "Debian_64",
       "http_directory": "http",
-      "iso_checksum": "6deb789fa05d84cd335d5afb86983119784dd978",
+      "iso_checksum": "2744d50f56c3d6332bc75e676f36aad3058d0aad",
       "iso_checksum_type": "sha1",
-      "iso_url": "http://cdimage.kali.org/kali-images/kali-1.0.7/kali-linux-1.0.7-amd64.iso",
+      "iso_url": "http://cdimage.kali.org/kali-images/kali-1.0.9a/kali-linux-1.0.9a-amd64.iso",
       "shutdown_command": "echo 'vagrant' | sudo -S /sbin/shutdown -h 0",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -51,8 +51,8 @@
       "boot_wait": "10s",
       "guest_os_type": "debian7-64",
       "http_directory": "http",
-      "iso_url": "http://cdimage.kali.org/kali-images/kali-1.0.7/kali-linux-1.0.7-amd64.iso",
-      "iso_checksum": "6deb789fa05d84cd335d5afb86983119784dd978",
+      "iso_url": "http://cdimage.kali.org/kali-images/kali-1.0.9a/kali-linux-1.0.9a-amd64.iso",
+      "iso_checksum": "2744d50f56c3d6332bc75e676f36aad3058d0aad",
       "iso_checksum_type": "sha1",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -96,7 +96,8 @@
   "post-processors": [  
     {
       "type": "vagrant",
-	"output" : "Kali_{{.Provider}}_{{isotime}}.box"
+	"output" : "Kali_{{.Provider}}_{{isotime}}.box",
+	"keep_input_artifact": true
     }
   ]
 }

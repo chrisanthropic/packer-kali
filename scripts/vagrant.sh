@@ -1,8 +1,7 @@
 # Set up Vagrant.
 date > /etc/vagrant_box_build_time
 
-# Create the user vagrant with password vagrant
-useradd -G sudo -p $(perl -e'print crypt("vagrant", "vagrant")') -m -s /bin/bash -N vagrant
+# Vagrant user is already created with the preseed file
 
 # Install vagrant keys
 mkdir -pm 700 /home/vagrant/.ssh

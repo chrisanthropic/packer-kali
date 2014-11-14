@@ -5,4 +5,4 @@ echo "7.4" > /etc/debian_version
 wget -O - http://opscode.com/chef/install.sh | sudo bash -s
 
 # Change our debian version back so we don't break shit with Kali
-echo "Kali Linux 1.0.7" > /etc/debian_version
+echo "Kali Linux 1.0.9" > /etc/debian_version
