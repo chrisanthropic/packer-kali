@@ -53,7 +53,4 @@ umount /mnt
 
 rm $VBOX_ISO
 
-$apt remove linux-headers-$(uname -r)
-$apt autoremove 
-
 fi

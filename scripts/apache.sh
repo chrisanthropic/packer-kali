@@ -1,3 +1,5 @@
+# These assets are placed in the webroot for use with our THA Cross-site scripting lab
+
 #!/bin/sh
 set -e
 

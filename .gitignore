@@ -18,5 +18,5 @@ Icon
 *.box
 *_cache
 .vagrant
-
+output-*
 RAVELLO
