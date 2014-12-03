@@ -34,9 +34,9 @@ Create the box you want (either virtualbox or vmware)
    - vmware: packer build -only=vmware-iso kali.json 
  
 ##### Vagrant #####
-Add the box you just created and then grab the Vagrantfile from [here](https://raw.githubusercontent.com/madsec/vagrant-vms/master/Vagrantfile).
+Use the provided Vagrantfile.
 
- - vagrant box add Kali /path/to/vm.box
+ - change `kali.vm.box = "blackfin/kali"` to `kali.vm.box = "location/of/local/box"` to use your own rather than the one we offer on VagrantCloud
  - cd to /packer-kali
    - virtualbox: vagrant up --provider=virtualbox
    - vmware: vagrant up --provider=vmware_desktop
